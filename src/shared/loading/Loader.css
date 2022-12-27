@@ -1,0 +1,47 @@
+.cart__loader{
+    height: 100vh;
+    width: 100%;
+ position: relative;
+}
+.cart__loader > i{
+    color: #039253 !important;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 111;
+    animation:car 1s ease-in  infinite;
+}
+
+.cart__loader > i::after{
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    z-index: 110;
+    background-color: #fff;
+    bottom: 10px;
+    border-radius: 50%;
+    left: -20px;
+    animation: opacity .2s linear alternate infinite;
+}
+
+@keyframes opacity {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes car {
+    0%{
+        left: 3%;
+    }
+    30%,60%{
+        left: 50%;
+    }
+    100%{
+        left: 97%;
+    }
+}

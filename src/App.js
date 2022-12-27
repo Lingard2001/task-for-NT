@@ -1,20 +1,30 @@
-
-import './App.css';
+import {  Suspense } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Loader from './shared/loading/Loader';
+import "./App.css"
 import Login from './Auth/Login';
-import {Router,Route,Routes} from 'react-router-dom'
-import Task from './pages/Task';
- 
+const App = () => {
 
-function App() {
+
+
   return (
-    <Router>
-      <main className='container content'>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/tasks' element={<Task />} />
-        </Routes>
-      </main>
-    </Router>
+    <Suspense fallback={<Loader />}>
+      <div className={`App `}>
+        <Router>
+       
+       
+            <Route path={`/`} >
+             <Login />
+            </Route>
+
+        </Router>
+      </div>
+    </Suspense>
+
   );
 }
 
